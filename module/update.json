@@ -1,6 +1,6 @@
 {
-  "version": "v6.0.1-307",
-  "versionCode": 307,
-  "zipUrl": "https://github.com/Enginex0/TEESimulator-RS/releases/download/v6.0.1-307/TEESimulator-RS-v6.0.1-307-Release.zip",
-  "changelog": "https://raw.githubusercontent.com/Enginex0/TEESimulator-RS/main/module/changelog.md"
+  "version": "v6.0.1-308",
+  "versionCode": 308,
+  "zipUrl": "https://github.com/adamaru/TEESimulator-RS/releases/download/v6.0.1-308/TEESimulator-RS-v6.0.1-308-Release.zip",
+  "changelog": "https://raw.githubusercontent.com/adamaru/TEESimulator-RS/release/v6.0.1-308/module/changelog.md"
 }

@@ -3,6 +3,21 @@
 
 ---
 
+## TEESimulator-RS v6.0.1-308
+
+Conforms KeyMint RSA-OAEP operations and MGF1 digest authorization to the Android KeyMint AIDL specification, fixing authentication and decryption failures across apps using hardware-backed keystore keys with OAEP padding.
+
+### KeyStore & KeyMint conformance
+- Default MGF1 digest to SHA-1 per KeyMint AIDL Tag::RSA_OAEP_MGF_DIGEST when RSA-OAEP padding is requested and the tag is omitted in operation parameters.
+- Support Digest::MD5 in addition to SHA algorithms in authorized MGF1 digest sets.
+- Reject operations with ErrorCode::INCOMPATIBLE_MGF_DIGEST (-78) when the requested or defaulted MGF1 digest is not authorized on the key.
+- Reject operations with ErrorCode::UNSUPPORTED_MGF_DIGEST (-79) when an invalid or unsupported MGF1 digest (e.g. NONE) is requested.
+- Update CipherPrimitive OAEPParameterSpec to use SHA-1 as default MGF1 digest when omitted.
+- Enforce that RSA operations specify exactly one padding mode, rejecting missing or multiple padding modes with ErrorCode::UNSUPPORTED_PADDING_MODE (-10).
+- Restrict MGF digest authorization checks strictly to RSA-OAEP operations, preventing non-OAEP operations from being unnecessarily rejected.
+
+---
+
 ## TEESimulator-RS v6.0.1-307
 
 Fixes five gaps in the module's TEE key-operation and attestation emulation. Two of them fix crashes in real app crypto on a broken-TEE device: any app using an AndroidKeyStore HMAC key or an RSA-OAEP-SHA256 key was throwing. This is a beta; the confirmation logs are in the debug build only, and nothing is field-verified yet.
